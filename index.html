@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-en="NEFORCEO" data-title-ru="NEFORCEO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +13,12 @@
 </head>
 <body>
 
-    <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">
                 <i class="fab fa-github-alt"></i>
                 <span>NEFORCEO</span>
             </div>
-
             <div class="preloader-bar">
                 <div class="preloader-bar-fill"></div>
             </div>
@@ -37,12 +35,16 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="project.html" class="nav-link">Projects</a></li>
-                <li><a href="company.html" class="nav-link">Work</a></li>
+                <li><a href="index.html" class="nav-link active" data-en="Home" data-ru="Главная">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-en="About" data-ru="Обо мне">About</a></li>
+                <li><a href="project.html" class="nav-link" data-en="Projects" data-ru="Проекты">Projects</a></li>
+                <li><a href="company.html" class="nav-link" data-en="Work" data-ru="Работа">Work</a></li>
+                <li class="nav-lang-item">
+                    <button class="lang-toggle" aria-label="Switch language">RU</button>
+                </li>
             </ul>
             <div class="nav-social">
+                <button class="lang-toggle" aria-label="Switch language">RU</button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon moon-icon"></i>
                     <i class="fas fa-sun sun-icon"></i>
@@ -55,21 +57,35 @@
         </div>
     </nav>
 
-
     <main class="main-content">
         <div class="home-container">
             <img src="https://github.com/neforceo.png" alt="NEFORCEO" class="profile-img">
-            
-            <h1 class="home-title">Hey! I'm <a href="https://github.com/neforceo" target="_blank">@NEFORCEO</a> (White NEFOR)</h1>
-            
-            <h2 class="home-subtitle">I'm a software developer and Python Telegram bot creator.</h2>
-            
-            <p class="home-description">I build APIs and work with Artificial Intelligence.</p>
-            
-            <p class="home-description">I create bots, automation tools, and modern web services.</p>
+
+            <h1 class="home-title"
+                data-en="Hey! I'm &lt;a href='https://github.com/neforceo' target='_blank'&gt;@NEFORCEO&lt;/a&gt; (White NEFOR)"
+                data-ru="Привет! Я &lt;a href='https://github.com/neforceo' target='_blank'&gt;@NEFORCEO&lt;/a&gt; (White NEFOR)">
+                Hey! I'm <a href="https://github.com/neforceo" target="_blank">@NEFORCEO</a> (White NEFOR)
+            </h1>
+
+            <h2 class="home-subtitle"
+                data-en="I'm a software developer and Python Telegram bot creator."
+                data-ru="Я разработчик ПО и создатель Telegram-ботов на Python.">
+                I'm a software developer and Python Telegram bot creator.
+            </h2>
+
+            <p class="home-description"
+                data-en="I build APIs and work with Artificial Intelligence."
+                data-ru="Пишу API и работаю с искусственным интеллектом.">
+                I build APIs and work with Artificial Intelligence.
+            </p>
+
+            <p class="home-description"
+                data-en="I create bots, automation tools, and modern web services."
+                data-ru="Создаю ботов, инструменты автоматизации и современные веб-сервисы.">
+                I create bots, automation tools, and modern web services.
+            </p>
         </div>
     </main>
-
 
     <footer class="footer">
         <div class="footer-social">
@@ -82,7 +98,11 @@
             <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
             <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="footer-text">© 2026 NEFORCEO. All rights reserved.</p>
+        <p class="footer-text"
+           data-en="© 2026 NEFORCEO. All rights reserved."
+           data-ru="© 2026 NEFORCEO. Все права защищены.">
+           © 2026 NEFORCEO. All rights reserved.
+        </p>
     </footer>
 
     <script src="js/main.js"></script>
