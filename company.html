@@ -8,7 +8,7 @@
     <link rel="icon" href="img/neforicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .work-container {
@@ -19,365 +19,393 @@
             width: 100%;
             margin: 0 auto 20px;
         }
+        @media (min-width: 1024px) { .work-container { padding: 60px; } }
 
-        @media (min-width: 1024px) {
-            .work-container { padding: 60px; }
-        }
-
-        /* ── Hero ── */
-        .work-hero {
-            text-align: center;
-            margin-bottom: 48px;
-            padding: 52px 28px 44px;
-            background: #080810;
-            border: 1px solid rgba(46, 115, 255, 0.22);
+        /* ─── Hero ─── */
+        .hero {
+            background: #060612;
             border-radius: 20px;
-            position: relative;
+            padding: 0;
+            margin-bottom: 24px;
             overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(46,115,255,0.18);
         }
-
-        .work-hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 420px;
-            height: 220px;
-            background: radial-gradient(ellipse, rgba(46, 115, 255, 0.28) 0%, transparent 70%);
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 60% at 50% -10%, rgba(46,115,255,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 30% at 80% 100%, rgba(96,165,250,0.08) 0%, transparent 60%);
             pointer-events: none;
         }
-
-        .work-hero::after {
-            content: '';
+        .hero-grid {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(46,115,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(46,115,255,0.04) 1px, transparent 1px);
-            background-size: 32px 32px;
+                linear-gradient(rgba(46,115,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(46,115,255,0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
             pointer-events: none;
-            mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
         }
-
-        .currently-badge {
+        .hero-inner {
             position: relative;
             z-index: 1;
+            padding: 52px 40px 48px;
+            text-align: center;
+        }
+
+        .status-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(74, 222, 128, 0.1);
+            background: rgba(74,222,128,0.1);
+            border: 1px solid rgba(74,222,128,0.3);
             color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.28);
-            padding: 6px 16px;
-            border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
-            margin-bottom: 28px;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 32px;
         }
-
-        .currently-badge .dot {
+        .status-dot {
             width: 6px;
             height: 6px;
             background: #4ade80;
             border-radius: 50%;
-            box-shadow: 0 0 6px #4ade80;
-            animation: pulse-dot 2s ease-in-out infinite;
+            box-shadow: 0 0 8px #4ade80;
+            animation: glow 2s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0%,100% { box-shadow: 0 0 6px #4ade80; }
+            50%      { box-shadow: 0 0 14px #4ade80, 0 0 28px rgba(74,222,128,0.3); }
         }
 
-        @keyframes pulse-dot {
-            0%, 100% { box-shadow: 0 0 6px #4ade80; opacity: 1; }
-            50%       { box-shadow: 0 0 14px #4ade80; opacity: 0.7; }
-        }
-
-        .terminal-logo {
-            position: relative;
-            z-index: 1;
+        .term-logo {
             font-family: 'Roboto Mono', monospace;
-            font-size: clamp(24px, 6vw, 46px);
+            font-size: clamp(26px, 6.5vw, 52px);
             font-weight: 600;
-            margin-bottom: 18px;
             line-height: 1;
             letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            user-select: none;
         }
-
-        .terminal-logo .prompt { color: #4ade80; }
-        .terminal-logo .cmd    { color: #60a5fa; }
-        .terminal-logo .arg    { color: #f1f5f9; }
-
-        .terminal-logo .cursor {
+        .term-logo .p { color: #4ade80; }
+        .term-logo .c { color: #60a5fa; }
+        .term-logo .a { color: #f1f5f9; }
+        .term-logo .cur {
             display: inline-block;
             width: 3px;
-            height: 0.85em;
+            height: 0.8em;
             background: #f1f5f9;
             vertical-align: text-bottom;
-            margin-left: 3px;
+            margin-left: 2px;
             border-radius: 1px;
             animation: blink 1s step-end infinite;
         }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
-        }
-
-        .work-hero-sub {
-            position: relative;
-            z-index: 1;
-            color: rgba(241, 245, 249, 0.5);
+        .hero-desc {
+            color: rgba(241,245,249,0.5);
             font-size: 15px;
-            max-width: 420px;
-            margin: 0 auto;
+            max-width: 380px;
+            margin: 0 auto 28px;
             line-height: 1.65;
         }
-
-        /* ── Sections ── */
-        .section { margin-bottom: 48px; }
-        .section:last-child { margin-bottom: 0; }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: var(--color-total-black);
-            letter-spacing: -0.02em;
+        .hero-actions {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title i { color: var(--color-brand-blue); }
-
-        /* ── About card ── */
-        .desc-card {
-            background: var(--color-gray);
-            border-radius: 16px;
-            padding: 28px 32px;
-            border-left: 3px solid var(--color-brand-blue);
-        }
-
-        .desc-card p {
-            color: var(--color-text-gray);
-            font-size: 15px;
-            line-height: 1.85;
-            margin: 0;
-        }
-
-        .desc-card strong {
-            color: var(--color-total-black);
-            font-weight: 600;
-        }
-
-        /* ── Stats ── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .stat-card {
-            background: var(--color-gray);
-            border-radius: 16px;
-            padding: 28px 16px 24px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(46, 115, 255, 0.1);
-        }
-
-        .stat-icon {
-            font-size: 22px;
-            color: var(--color-brand-blue);
-            margin-bottom: 12px;
-            opacity: 0.8;
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--color-brand-blue);
-            margin-bottom: 5px;
-            font-family: 'Roboto Mono', monospace;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-label {
-            color: var(--color-text-gray);
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        /* ── Tracks ── */
-        .tracks-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            justify-content: center;
             gap: 12px;
+            flex-wrap: wrap;
         }
-
-        .track-card {
-            background: var(--color-gray);
-            border-radius: 14px;
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .track-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-
-        .track-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 11px;
-            background: linear-gradient(135deg, var(--color-brand-blue), #1f5fd9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 17px;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(46,115,255,0.3);
-        }
-
-        .track-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--color-total-black);
-            margin-bottom: 5px;
-            letter-spacing: -0.01em;
-        }
-
-        .track-desc {
-            font-size: 12px;
-            color: var(--color-text-gray);
-            line-height: 1.6;
-        }
-
-        /* ── Alumni ── */
-        .alumni-intro {
-            font-size: 14px;
-            color: var(--color-text-gray);
-            margin-bottom: 20px;
-        }
-
-        .alumni-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .alumni-card {
-            background: var(--color-gray);
-            border-radius: 14px;
-            padding: 18px 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .alumni-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .alumni-inner {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .alumni-inner img {
-            height: 24px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        /* ── CTA ── */
-        .cta-section {
-            background: #080810;
-            border: 1px solid rgba(46, 115, 255, 0.22);
-            border-radius: 20px;
-            padding: 44px 32px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 380px;
-            height: 180px;
-            background: radial-gradient(ellipse, rgba(46, 115, 255, 0.22) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-section h3 {
-            position: relative;
-            font-size: 22px;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-section p {
-            position: relative;
-            color: rgba(241, 245, 249, 0.45);
-            font-size: 14px;
-            margin-bottom: 28px;
-        }
-
-        .cta-btn {
-            position: relative;
+        .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: var(--color-brand-blue);
             color: white;
-            padding: 14px 36px;
+            padding: 12px 28px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 20px rgba(46,115,255,0.35);
+            font-size: 14px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 18px rgba(46,115,255,0.4);
         }
-
-        .cta-btn:hover {
+        .btn-primary:hover {
             background: #1f5fd9;
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(46, 115, 255, 0.5);
+            box-shadow: 0 8px 28px rgba(46,115,255,0.5);
+        }
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(241,245,249,0.06);
+            color: rgba(241,245,249,0.75);
+            border: 1px solid rgba(241,245,249,0.15);
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn-ghost:hover {
+            background: rgba(241,245,249,0.1);
+            color: #f1f5f9;
         }
 
-        /* ── Responsive ── */
+        /* ─── Split: about + stats ─── */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .about-card {
+            background: var(--color-gray);
+            border-radius: 18px;
+            padding: 28px;
+            border-left: 3px solid var(--color-brand-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .about-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-brand-blue);
+        }
+        .about-card p {
+            color: var(--color-text-gray);
+            font-size: 14px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .about-card strong { color: var(--color-total-black); font-weight: 600; }
+        .about-card .about-points {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .about-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--color-text-gray);
+        }
+        .about-point i {
+            color: var(--color-brand-blue);
+            font-size: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .stats-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .stat-card {
+            background: var(--color-gray);
+            border-radius: 16px;
+            padding: 20px 20px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stat-val {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-brand-blue);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .stat-lbl {
+            font-size: 12px;
+            color: var(--color-text-gray);
+            font-weight: 500;
+        }
+
+        /* ─── Tracks ─── */
+        .section { margin-bottom: 24px; }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .section-head i { color: var(--color-brand-blue); font-size: 16px; }
+        .section-head h2 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--color-total-black);
+        }
+
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .track {
+            background: var(--color-gray);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .track:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        .track-ico {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .track-ico.blue   { background: linear-gradient(135deg,#2e73ff,#1a56e8); }
+        .track-ico.indigo { background: linear-gradient(135deg,#6366f1,#4f46e5); }
+        .track-ico.purple { background: linear-gradient(135deg,#a855f7,#9333ea); }
+        .track-ico.orange { background: linear-gradient(135deg,#f97316,#ea580c); }
+        .track-ico.green  { background: linear-gradient(135deg,#22c55e,#16a34a); }
+        .track-ico.pink   { background: linear-gradient(135deg,#ec4899,#db2777); }
+
+        .track-txt .tn {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-total-black);
+            margin-bottom: 3px;
+            letter-spacing: -0.01em;
+        }
+        .track-txt .td {
+            font-size: 11px;
+            color: var(--color-text-gray);
+            line-height: 1.5;
+        }
+
+        /* ─── Alumni ─── */
+        .alumni-intro {
+            font-size: 13px;
+            color: var(--color-text-gray);
+            margin-bottom: 14px;
+        }
+        .companies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .co {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: default;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .co:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+        .co .co-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .co-yandex  { background: rgba(255,60,0,0.12);  color: #ff3c00; border: 1px solid rgba(255,60,0,0.2);  }
+        .co-yandex  .co-dot { background: #ff3c00; }
+        .co-vk      { background: rgba(0,119,255,0.12); color: #0077ff; border: 1px solid rgba(0,119,255,0.2); }
+        .co-vk      .co-dot { background: #0077ff; }
+        .co-sber    { background: rgba(33,160,56,0.12); color: #21a038; border: 1px solid rgba(33,160,56,0.2); }
+        .co-sber    .co-dot { background: #21a038; }
+        .co-tbank   { background: rgba(255,195,0,0.15); color: #b8880a; border: 1px solid rgba(255,195,0,0.25); }
+        .co-tbank   .co-dot { background: #ffc300; }
+        .co-google  { background: rgba(66,133,244,0.12); color: #4285f4; border: 1px solid rgba(66,133,244,0.2); }
+        .co-google  .co-dot { background: #4285f4; }
+        .co-tiktok  { background: rgba(254,44,85,0.1);  color: #fe2c55; border: 1px solid rgba(254,44,85,0.2); }
+        .co-tiktok  .co-dot { background: #fe2c55; }
+
+        [data-theme="light"] .co-tbank { color: #996b00; }
+
+        /* ─── CTA ─── */
+        .cta {
+            background: #060612;
+            border: 1px solid rgba(46,115,255,0.2);
+            border-radius: 20px;
+            padding: 44px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(46,115,255,0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta h3 {
+            position: relative;
+            font-size: 24px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .cta p {
+            position: relative;
+            color: rgba(241,245,249,0.45);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .cta-actions {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ─── Responsive ─── */
         @media (max-width: 768px) {
             .work-container { padding: 24px; }
-            .tracks-grid    { grid-template-columns: 1fr; }
-            .alumni-grid    { grid-template-columns: repeat(2, 1fr); }
+            .hero-inner { padding: 40px 24px 36px; }
+            .split { grid-template-columns: 1fr; }
+            .stats-col { flex-direction: row; }
+            .tracks { grid-template-columns: repeat(2, 1fr); }
+            .cta { padding: 36px 24px; }
         }
-
-        @media (max-width: 480px) {
-            .stats-grid  { grid-template-columns: 1fr; }
-            .alumni-grid { grid-template-columns: 1fr; }
+        @media (max-width: 520px) {
+            .tracks { grid-template-columns: 1fr; }
+            .stats-col { flex-direction: column; }
         }
     </style>
 </head>
@@ -405,8 +433,8 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link" data-en="Home" data-ru="Главная">Home</a></li>
-                <li><a href="about.html" class="nav-link" data-en="About" data-ru="Обо мне">About</a></li>
+                <li><a href="index.html"  class="nav-link" data-en="Home"     data-ru="Главная">Home</a></li>
+                <li><a href="about.html"  class="nav-link" data-en="About"    data-ru="Обо мне">About</a></li>
                 <li><a href="project.html" class="nav-link" data-en="Projects" data-ru="Проекты">Projects</a></li>
                 <li><a href="company.html" class="nav-link active" data-en="Work" data-ru="Работа">Work</a></li>
                 <li class="nav-lang-item">
@@ -420,8 +448,8 @@
                     <i class="fas fa-sun sun-icon"></i>
                 </button>
                 <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-                <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
+                <a href="https://t.me/neforndu"       target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://vk.com/neforceo"     target="_blank"><i class="fab fa-vk"></i></a>
                 <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
@@ -431,167 +459,155 @@
         <div class="work-container">
 
             <!-- Hero -->
-            <div class="work-hero">
-                <div class="currently-badge">
-                    <span class="dot"></span>
-                    <span data-en="Currently Working Here" data-ru="Работаю здесь прямо сейчас">Currently Working Here</span>
+            <div class="hero">
+                <div class="hero-bg"></div>
+                <div class="hero-grid"></div>
+                <div class="hero-inner">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span data-en="Currently working here" data-ru="Работаю здесь прямо сейчас">Currently working here</span>
+                    </div>
+                    <div class="term-logo">
+                        <span class="p">$</span><span class="c"> sudo</span><span class="a"> teach IT</span><span class="cur"></span>
+                    </div>
+                    <p class="hero-desc"
+                       data-en="Online school of IT education — fast, practical, no fluff."
+                       data-ru="Онлайн-школа ИТ-образования — быстро, практично, без воды.">
+                        Online school of IT education — fast, practical, no fluff.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://sudoteach.com" target="_blank" class="btn-primary">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                            <span data-en="Visit Website" data-ru="Открыть сайт">Visit Website</span>
+                        </a>
+                        <a href="https://sudoteach.com" target="_blank" class="btn-ghost">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span data-en="Courses" data-ru="Курсы">Courses</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="terminal-logo">
-                    <span class="prompt">$</span>
-                    <span class="cmd"> sudo</span>
-                    <span class="arg"> teach IT</span>
-                    <span class="cursor"></span>
-                </div>
-                <p class="work-hero-sub"
-                   data-en="Online IT education platform — practical programming, no fluff."
-                   data-ru="Онлайн-школа ИТ-образования — только практика, без воды.">
-                    Online IT education platform — practical programming, no fluff.
-                </p>
             </div>
 
-            <!-- About -->
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-building"></i>
-                    <span data-en="About" data-ru="О компании">About</span>
-                </h2>
-                <div class="desc-card">
-                    <p data-en="&lt;strong&gt;$ sudo teach IT&lt;/strong&gt; is a Russian-language online school focused on practical IT education. Philosophy: teach fast, teach practical — zero academic padding. Students go from zero to first job through structured tracks with role-based certifications. The platform has &lt;strong&gt;1,239 coding challenges&lt;/strong&gt; embedded directly into courses — theory is always backed by code."
-                       data-ru="&lt;strong&gt;$ sudo teach IT&lt;/strong&gt; — русскоязычная онлайн-школа ИТ-образования. Основная идея: учить быстро и по делу — без академического балласта. Студенты проходят путь от нуля до первой работы через структурированные треки с ролевыми сертификатами. На платформе &lt;strong&gt;1 239 практических задач&lt;/strong&gt;, встроенных прямо в учебные курсы — теория всегда подкреплена кодом.">
-                        <strong>$ sudo teach IT</strong> is a Russian-language online school focused on practical IT education. Philosophy: teach fast, teach practical — zero academic padding. Students go from zero to first job through structured tracks with role-based certifications. The platform has <strong>1,239 coding challenges</strong> embedded directly into courses — theory is always backed by code.
+            <!-- About + Stats split -->
+            <div class="split">
+                <div class="about-card">
+                    <div class="about-card-title" data-en="About the company" data-ru="О компании">About the company</div>
+                    <p data-en="&lt;strong&gt;$ sudo teach IT&lt;/strong&gt; is a Russian-language online school with one mission: get people into IT fast. No theory overload — just structured tracks, real projects, and 1,239 embedded coding challenges that turn lessons into practice from day one."
+                       data-ru="&lt;strong&gt;$ sudo teach IT&lt;/strong&gt; — русскоязычная онлайн-школа с одной миссией: быстро вводить людей в ИТ. Никакой теории ради теории — только структурированные треки, реальные проекты и 1 239 встроенных задач, которые превращают уроки в практику с первого дня.">
+                        <strong>$ sudo teach IT</strong> is a Russian-language online school with one mission: get people into IT fast. No theory overload — just structured tracks, real projects, and 1,239 embedded coding challenges that turn lessons into practice from day one.
                     </p>
+                    <div class="about-points">
+                        <div class="about-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-en="Role-based certifications: Bot Developer, Python Senior, and more" data-ru="Ролевые сертификаты: Bot Developer, Python Senior и другие">Role-based certifications: Bot Developer, Python Senior, and more</span>
+                        </div>
+                        <div class="about-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-en="1,796 video lessons across all tracks" data-ru="1 796 видеоуроков по всем направлениям">1,796 video lessons across all tracks</span>
+                        </div>
+                        <div class="about-point">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-en="Partner of IT Park Uzbekistan" data-ru="Партнёр IT Park Uzbekistan">Partner of IT Park Uzbekistan</span>
+                        </div>
+                    </div>
                 </div>
-            </section>
 
-            <!-- Stats -->
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-chart-line"></i>
-                    <span data-en="Platform Stats" data-ru="Статистика платформы">Platform Stats</span>
-                </h2>
-                <div class="stats-grid">
+                <div class="stats-col">
                     <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-number">3 880+</div>
-                        <div class="stat-label" data-en="Students enrolled" data-ru="Студентов обучается">Students enrolled</div>
+                        <div class="stat-val">3 880+</div>
+                        <div class="stat-lbl" data-en="Students enrolled" data-ru="Студентов обучается">Students enrolled</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-book-open"></i></div>
-                        <div class="stat-number">31 621+</div>
-                        <div class="stat-label" data-en="Lessons completed" data-ru="Уроков пройдено">Lessons completed</div>
+                        <div class="stat-val">31 621+</div>
+                        <div class="stat-lbl" data-en="Lessons completed" data-ru="Уроков пройдено">Lessons completed</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-code"></i></div>
-                        <div class="stat-number">1 239</div>
-                        <div class="stat-label" data-en="Coding problems" data-ru="Задач в базе">Coding problems</div>
+                        <div class="stat-val">1 239</div>
+                        <div class="stat-lbl" data-en="Coding problems" data-ru="Задач в базе">Coding problems</div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <!-- Course tracks -->
-            <section class="section">
-                <h2 class="section-title">
+            <div class="section">
+                <div class="section-head">
                     <i class="fas fa-graduation-cap"></i>
-                    <span data-en="Course Tracks" data-ru="Направления обучения">Course Tracks</span>
-                </h2>
-                <div class="tracks-grid">
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fab fa-python"></i></div>
-                        <div>
-                            <div class="track-name" data-en="Python &amp; Backend" data-ru="Python &amp; Backend">Python &amp; Backend</div>
-                            <div class="track-desc" data-en="Python PRO, Django, FastAPI, Advanced SQL, Docker, CI/CD" data-ru="Python PRO, Django, FastAPI, Advanced SQL, Docker, CI/CD">Python PRO, Django, FastAPI, Advanced SQL, Docker, CI/CD</div>
+                    <h2><span data-en="Course Tracks" data-ru="Направления обучения">Course Tracks</span></h2>
+                </div>
+                <div class="tracks">
+                    <div class="track">
+                        <div class="track-ico blue"><i class="fab fa-python"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="Python &amp; Backend" data-ru="Python &amp; Backend">Python &amp; Backend</div>
+                            <div class="td" data-en="Django, FastAPI, SQL, Docker, CI/CD" data-ru="Django, FastAPI, SQL, Docker, CI/CD">Django, FastAPI, SQL, Docker, CI/CD</div>
                         </div>
                     </div>
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fas fa-robot"></i></div>
-                        <div>
-                            <div class="track-name" data-en="Telegram Bots" data-ru="Telegram-боты">Telegram Bots</div>
-                            <div class="track-desc" data-en="Bots from scratch: payments, broadcasts, inline keyboards, admin panels" data-ru="Боты с нуля: платежи, рассылки, инлайн-клавиатуры, админки">Bots from scratch: payments, broadcasts, inline keyboards, admin panels</div>
+                    <div class="track">
+                        <div class="track-ico indigo"><i class="fas fa-robot"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="Telegram Bots" data-ru="Telegram-боты">Telegram Bots</div>
+                            <div class="td" data-en="From scratch: payments, admin panels" data-ru="С нуля: платежи, рассылки, админки">From scratch: payments, admin panels</div>
                         </div>
                     </div>
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fas fa-brain"></i></div>
-                        <div>
-                            <div class="track-name" data-en="Machine Learning" data-ru="Machine Learning">Machine Learning</div>
-                            <div class="track-desc" data-en="ML fundamentals, data analysis, neural networks" data-ru="Основы ML, анализ данных, нейронные сети">ML fundamentals, data analysis, neural networks</div>
+                    <div class="track">
+                        <div class="track-ico purple"><i class="fas fa-brain"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="Machine Learning" data-ru="Machine Learning">Machine Learning</div>
+                            <div class="td" data-en="ML, data analysis, neural networks" data-ru="ML, анализ данных, нейросети">ML, data analysis, neural networks</div>
                         </div>
                     </div>
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fas fa-shield-alt"></i></div>
-                        <div>
-                            <div class="track-name" data-en="DevSecOps" data-ru="DevSecOps">DevSecOps</div>
-                            <div class="track-desc" data-en="Security, Linux, automation, test engineering" data-ru="Безопасность, Linux, автоматизация, тестирование">Security, Linux, automation, test engineering</div>
+                    <div class="track">
+                        <div class="track-ico orange"><i class="fas fa-shield-alt"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="DevSecOps" data-ru="DevSecOps">DevSecOps</div>
+                            <div class="td" data-en="Security, Linux, test automation" data-ru="Безопасность, Linux, автотесты">Security, Linux, test automation</div>
                         </div>
                     </div>
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fab fa-js"></i></div>
-                        <div>
-                            <div class="track-name" data-en="Web Development" data-ru="Веб-разработка">Web Development</div>
-                            <div class="track-desc" data-en="HTML/CSS, JavaScript, Go, full-stack projects" data-ru="HTML/CSS, JavaScript, Go, полноценные проекты">HTML/CSS, JavaScript, Go, full-stack projects</div>
+                    <div class="track">
+                        <div class="track-ico green"><i class="fab fa-js"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="Web Development" data-ru="Веб-разработка">Web Development</div>
+                            <div class="td" data-en="HTML/CSS, JavaScript, Go" data-ru="HTML/CSS, JavaScript, Go">HTML/CSS, JavaScript, Go</div>
                         </div>
                     </div>
-                    <div class="track-card">
-                        <div class="track-icon"><i class="fas fa-cube"></i></div>
-                        <div>
-                            <div class="track-name" data-en="3D &amp; Game Dev" data-ru="3D &amp; Геймдев">3D &amp; Game Dev</div>
-                            <div class="track-desc" data-en="3D modeling in Blender, game development with Unity" data-ru="3D-моделирование в Blender, разработка игр на Unity">3D modeling in Blender, game development with Unity</div>
+                    <div class="track">
+                        <div class="track-ico pink"><i class="fas fa-cube"></i></div>
+                        <div class="track-txt">
+                            <div class="tn" data-en="3D &amp; Game Dev" data-ru="3D &amp; Геймдев">3D &amp; Game Dev</div>
+                            <div class="td" data-en="Blender 3D, Unity" data-ru="Blender 3D, Unity">Blender 3D, Unity</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Alumni -->
-            <section class="section">
-                <h2 class="section-title">
+            <!-- Graduates -->
+            <div class="section">
+                <div class="section-head">
                     <i class="fas fa-trophy"></i>
-                    <span data-en="Graduates Work At" data-ru="Выпускники работают в">Graduates Work At</span>
-                </h2>
-                <p class="alumni-intro" data-en="Companies where sudoteach alumni landed jobs" data-ru="Компании, куда трудоустроились студенты sudoteach">Companies where sudoteach alumni landed jobs</p>
-                <div class="alumni-grid">
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Yandex_icon.svg" alt="Yandex">
-                        </div>
-                    </div>
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/VK_Compact_Logo_%282021-present%29.svg" alt="VK">
-                        </div>
-                    </div>
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://toplogos.ru/images/logo-sber.png" alt="Sber">
-                        </div>
-                    </div>
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/T-Bank_RU_logo.svg/2560px-T-Bank_RU_logo.svg.png" alt="T-Bank">
-                        </div>
-                    </div>
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
-                        </div>
-                    </div>
-                    <div class="alumni-card">
-                        <div class="alumni-inner">
-                            <img src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok">
-                        </div>
-                    </div>
+                    <h2><span data-en="Graduates Work At" data-ru="Выпускники работают в">Graduates Work At</span></h2>
                 </div>
-            </section>
+                <p class="alumni-intro" data-en="Companies where sudoteach alumni landed jobs" data-ru="Компании, куда трудоустроились студенты sudoteach">Companies where sudoteach alumni landed jobs</p>
+                <div class="companies">
+                    <span class="co co-yandex"><span class="co-dot"></span>Yandex</span>
+                    <span class="co co-vk"><span class="co-dot"></span>VK</span>
+                    <span class="co co-sber"><span class="co-dot"></span>Sber</span>
+                    <span class="co co-tbank"><span class="co-dot"></span>T-Bank</span>
+                    <span class="co co-google"><span class="co-dot"></span>Google</span>
+                    <span class="co co-tiktok"><span class="co-dot"></span>TikTok</span>
+                </div>
+            </div>
 
             <!-- CTA -->
-            <section class="section">
-                <div class="cta-section">
-                    <h3 data-en="Want to learn IT the fast way?" data-ru="Хочешь войти в ИТ быстро?">Want to learn IT the fast way?</h3>
-                    <p data-en="Practical courses, no fluff — from beginner to job-ready" data-ru="Практические курсы без воды — от новичка до первой работы">Practical courses, no fluff — from beginner to job-ready</p>
-                    <a href="https://sudoteach.com" target="_blank" class="cta-btn">
+            <div class="cta">
+                <h3 data-en="Want to break into IT fast?" data-ru="Хочешь войти в ИТ быстро?">Want to break into IT fast?</h3>
+                <p data-en="Practical courses, no fluff — from zero to first job" data-ru="Практические курсы без воды — от нуля до первой работы">Practical courses, no fluff — from zero to first job</p>
+                <div class="cta-actions">
+                    <a href="https://sudoteach.com" target="_blank" class="btn-primary">
                         <i class="fas fa-arrow-up-right-from-square"></i>
-                        <span data-en="Visit sudoteach.com" data-ru="Перейти на sudoteach.com">Visit sudoteach.com</span>
+                        <span data-en="sudoteach.com" data-ru="sudoteach.com">sudoteach.com</span>
                     </a>
                 </div>
-            </section>
+            </div>
 
         </div>
     </main>
@@ -603,14 +619,14 @@
                 <i class="fas fa-sun sun-icon"></i>
             </button>
             <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-            <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-            <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
+            <a href="https://t.me/neforndu"       target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://vk.com/neforceo"     target="_blank"><i class="fab fa-vk"></i></a>
             <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="footer-text"
            data-en="© 2026 NEFORCEO. All rights reserved."
            data-ru="© 2026 NEFORCEO. Все права защищены.">
-           © 2026 NEFORCEO. All rights reserved.
+            © 2026 NEFORCEO. All rights reserved.
         </p>
     </footer>
 
