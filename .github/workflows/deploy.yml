@@ -101,7 +101,7 @@ jobs:
           TAG="${{ steps.bump_version.outputs.NEW_TAG }}"
           MESSAGE="🚀 *Deploy Successful!*
 
-          🌐 *Site:* neforceo.ilnazik.dev
+          🌐 *Site:* www.sudoteach.tech
 
           📦 *Release:* ${TAG}
 
