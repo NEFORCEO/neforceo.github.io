@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-en="About — NEFORCEO" data-title-ru="Обо мне — NEFORCEO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - NEFORCEO</title>
+    <title>About — NEFORCEO</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/neforicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,12 @@
 </head>
 <body>
 
-    <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">
                 <i class="fab fa-github-alt"></i>
                 <span>NEFORCEO</span>
             </div>
-
             <div class="preloader-bar">
                 <div class="preloader-bar-fill"></div>
             </div>
@@ -45,71 +43,92 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="project.html" class="nav-link">Projects</a></li>
-                <li><a href="company.html" class="nav-link">Work</a></li>
+                <li><a href="index.html" class="nav-link" data-en="Home" data-ru="Главная">Home</a></li>
+                <li><a href="about.html" class="nav-link active" data-en="About" data-ru="Обо мне">About</a></li>
+                <li><a href="project.html" class="nav-link" data-en="Projects" data-ru="Проекты">Projects</a></li>
+                <li><a href="company.html" class="nav-link" data-en="Work" data-ru="Работа">Work</a></li>
+                <li class="nav-lang-item">
+                    <button class="lang-toggle" aria-label="Switch language">RU</button>
+                </li>
             </ul>
             <div class="nav-social">
+                <button class="lang-toggle" aria-label="Switch language">RU</button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon moon-icon"></i>
                     <i class="fas fa-sun sun-icon"></i>
                 </button>
                 <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-                <a href="https://t.me/nefrondu" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-                <a href="mailto:n7for@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </nav>
 
-
     <main class="main-content">
         <div class="about-container">
-            <h1 class="page-title">About</h1>
-            
+            <h1 class="page-title" data-en="About" data-ru="Обо мне">About</h1>
+
             <div class="about-content">
-                <p>My journey in the IT industry began back in June 2022, when I decided to start writing Telegram bots with zero programming knowledge.</p>
-                
-                <p>Then I started diving deeper into this topic and I really liked it.</p>
-                
-                <p>In September 2025, I began learning the <strong>FastAPI</strong> framework. I didn't expect to get into this tool so quickly, and I liked it. I continue writing APIs to this day, expanding my mindset and skills.</p>
-                
-                <p>Currently, I continue learning new technologies and building cool projects.</p>
-                
+                <p data-en="My journey in the IT industry began back in June 2022, when I decided to start writing Telegram bots with zero programming knowledge."
+                   data-ru="Мой путь в ИТ начался в июне 2022 года, когда я решил начать писать Telegram-ботов с нулевыми знаниями программирования.">
+                    My journey in the IT industry began back in June 2022, when I decided to start writing Telegram bots with zero programming knowledge.
+                </p>
+
+                <p data-en="Then I started diving deeper into this topic and I really liked it."
+                   data-ru="Потом я начал углубляться в эту тему — и мне это очень понравилось.">
+                    Then I started diving deeper into this topic and I really liked it.
+                </p>
+
+                <p data-en="In September 2025, I began learning the &lt;strong&gt;FastAPI&lt;/strong&gt; framework. I didn't expect to get into this tool so quickly, and I liked it. I continue writing APIs to this day, expanding my mindset and skills."
+                   data-ru="В сентябре 2025 года начал изучать фреймворк &lt;strong&gt;FastAPI&lt;/strong&gt;. Не ожидал так быстро вникнуть в этот инструмент, но он мне понравился. По сей день пишу API, расширяя кругозор и навыки.">
+                    In September 2025, I began learning the <strong>FastAPI</strong> framework. I didn't expect to get into this tool so quickly, and I liked it. I continue writing APIs to this day, expanding my mindset and skills.
+                </p>
+
+                <p data-en="Currently, I continue learning new technologies and building cool projects."
+                   data-ru="Сейчас продолжаю изучать новые технологии и создавать крутые проекты.">
+                    Currently, I continue learning new technologies and building cool projects.
+                </p>
+
                 <hr class="about-divider">
-                
-                <h2>My Stack</h2>
+
+                <h2 data-en="My Stack" data-ru="Мой стек">My Stack</h2>
                 <div class="tech-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Django</span>
                     <span class="tech-tag">Telegram Bot API</span>
                     <span class="tech-tag">AI/ML</span>
                     <span class="tech-tag">APIs</span>
                     <span class="tech-tag">Automation</span>
                 </div>
-                
+
                 <hr class="about-divider">
-                
-                <h2>What I Do</h2>
+
+                <h2 data-en="What I Do" data-ru="Чем занимаюсь">What I Do</h2>
                 <ul class="about-list">
-                    <li><i class="fab fa-telegram"></i> Create Telegram bots of any complexity</li>
-                    <li><i class="fas fa-plug"></i> Build REST APIs with FastAPI</li>
-                    <li><i class="fas fa-brain"></i> Work with Artificial Intelligence</li>
-                    <li><i class="fas fa-cogs"></i> Automate processes and workflows</li>
-                    <li><i class="fas fa-globe"></i> Develop modern web services</li>
+                    <li><i class="fab fa-telegram"></i> <span data-en="Create Telegram bots of any complexity" data-ru="Создаю Telegram-ботов любой сложности">Create Telegram bots of any complexity</span></li>
+                    <li><i class="fas fa-plug"></i> <span data-en="Build REST APIs with FastAPI and Django" data-ru="Разрабатываю REST API на FastAPI и Django">Build REST APIs with FastAPI and Django</span></li>
+                    <li><i class="fas fa-brain"></i> <span data-en="Work with Artificial Intelligence" data-ru="Работаю с искусственным интеллектом">Work with Artificial Intelligence</span></li>
+                    <li><i class="fas fa-cogs"></i> <span data-en="Automate processes and workflows" data-ru="Автоматизирую процессы и рабочие потоки">Automate processes and workflows</span></li>
+                    <li><i class="fas fa-globe"></i> <span data-en="Develop modern web services" data-ru="Разрабатываю современные веб-сервисы">Develop modern web services</span></li>
                 </ul>
-                
+
                 <hr class="about-divider">
-                
-                <h2>Goals</h2>
-                <p>I'm constantly learning new technologies and improving my skills. My goal is to become a professional backend developer and create tools that help people.</p>
-                
-                <p>Always open to new projects and collaborations!</p>
+
+                <h2 data-en="Goals" data-ru="Цели">Goals</h2>
+                <p data-en="I'm constantly learning new technologies and improving my skills. My goal is to become a professional backend developer and create tools that help people."
+                   data-ru="Постоянно изучаю новые технологии и прокачиваю навыки. Цель — стать профессиональным бэкенд-разработчиком и создавать инструменты, помогающие людям.">
+                    I'm constantly learning new technologies and improving my skills. My goal is to become a professional backend developer and create tools that help people.
+                </p>
+
+                <p data-en="Always open to new projects and collaborations!"
+                   data-ru="Всегда открыт для новых проектов и коллабораций!">
+                    Always open to new projects and collaborations!
+                </p>
             </div>
         </div>
     </main>
-
 
     <footer class="footer">
         <div class="footer-social">
@@ -118,11 +137,15 @@
                 <i class="fas fa-sun sun-icon"></i>
             </button>
             <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-            <a href="https://t.me/nefrondu" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
             <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-            <a href="mailto:n7for@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p class="footer-text">© 2026 NEFORCEO. All rights reserved.</p>
+        <p class="footer-text"
+           data-en="© 2026 NEFORCEO. All rights reserved."
+           data-ru="© 2026 NEFORCEO. Все права защищены.">
+           © 2026 NEFORCEO. All rights reserved.
+        </p>
     </footer>
 
     <script src="js/main.js"></script>
