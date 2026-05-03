@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company — NEFORCEO</title>
+    <title>Work — NEFORCEO</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/neforicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .company-container {
+        .work-container {
             padding: 40px;
             background: var(--color-white);
             border-radius: 24px;
@@ -21,47 +21,104 @@
         }
 
         @media (min-width: 1024px) {
-            .company-container {
+            .work-container {
                 padding: 60px;
             }
         }
 
-        .company-hero {
+        /* ── Hero ── */
+        .work-hero {
             text-align: center;
             margin-bottom: 48px;
-            padding: 40px 20px;
-            background: var(--color-gray);
-            border-radius: 16px;
+            padding: 48px 24px;
+            background: #0d0d14;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .company-badge {
+        .work-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(46, 115, 255, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .currently-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: var(--color-brand-blue);
-            color: white;
-            padding: 8px 16px;
+            gap: 7px;
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
-        .company-hero h1 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
+        .currently-badge .dot {
+            width: 7px;
+            height: 7px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
         }
 
-        .company-hero p {
-            color: var(--color-text-gray);
-            font-size: 16px;
-            max-width: 500px;
+        @keyframes pulse-green {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+
+        .terminal-logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(22px, 5vw, 40px);
+            font-weight: 600;
+            color: #f0f0f0;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .terminal-logo .prompt {
+            color: #4ade80;
+        }
+
+        .terminal-logo .cmd {
+            color: #60a5fa;
+        }
+
+        .terminal-logo .arg {
+            color: #f0f0f0;
+        }
+
+        .terminal-logo .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: #f0f0f0;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .work-hero-sub {
+            color: rgba(240, 240, 240, 0.55);
+            font-size: 15px;
+            max-width: 440px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
+        /* ── Sections ── */
         .section {
             margin-bottom: 48px;
         }
@@ -71,36 +128,50 @@
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: var(--color-total-black);
             letter-spacing: -0.02em;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .section-title i {
             color: var(--color-brand-blue);
         }
 
+        /* ── About card ── */
+        .about-card {
+            background: var(--color-gray);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .about-card p {
+            color: var(--color-text-gray);
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* ── Stats ── */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 14px;
         }
 
         .stat-card {
             background: var(--color-gray);
             border-radius: 16px;
-            padding: 24px;
+            padding: 24px 16px;
             text-align: center;
         }
 
         .stat-number {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 700;
             color: var(--color-brand-blue);
             margin-bottom: 4px;
@@ -108,137 +179,152 @@
 
         .stat-label {
             color: var(--color-text-gray);
-            font-size: 14px;
+            font-size: 13px;
+            line-height: 1.4;
         }
 
-        .service-card {
+        /* ── Course tracks ── */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .track-card {
             background: var(--color-gray);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-            display: block;
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
         }
 
-        .service-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        .service-header {
+        .track-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--color-brand-blue);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
         }
 
-        .service-name {
-            font-size: 18px;
+        .track-name {
+            font-size: 15px;
             font-weight: 600;
             color: var(--color-total-black);
+            margin-bottom: 4px;
+        }
+
+        .track-desc {
+            font-size: 13px;
+            color: var(--color-text-gray);
+            line-height: 1.5;
+        }
+
+        /* ── Alumni logos ── */
+        .alumni-label {
+            font-size: 13px;
+            color: var(--color-text-gray);
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .alumni-logos {
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .service-name i {
-            color: var(--color-brand-blue);
-        }
-
-        .service-description {
-            color: var(--color-text-gray);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .contact-section {
-            background: var(--color-gray);
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-        }
-
-        .contact-section h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .contact-section p {
-            color: var(--color-text-gray);
-            font-size: 15px;
-            margin-bottom: 24px;
-        }
-
-        .contact-buttons {
-            display: flex;
             justify-content: center;
-            gap: 12px;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .contact-btn {
+        .alumni-logo {
+            height: 28px;
+            width: auto;
+            opacity: 0.65;
+            filter: grayscale(0.3);
+            transition: opacity 0.2s, filter 0.2s;
+        }
+
+        .alumni-logo:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: #0d0d14;
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(46, 115, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #f0f0f0;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            color: rgba(240, 240, 240, 0.5);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .cta-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
+            background: var(--color-brand-blue);
+            color: white;
+            padding: 14px 32px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
             transition: all 0.2s ease;
         }
 
-        .contact-btn.primary {
-            background: var(--color-brand-blue);
-            color: white;
-        }
-
-        .contact-btn.primary:hover {
+        .cta-btn:hover {
             background: #1f5fd9;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(46, 115, 255, 0.35);
         }
 
-        .contact-btn.secondary {
-            background: #2a2a35;
-            color: white;
-            border: 1px solid #3a3a45;
-        }
-
-        .contact-btn.secondary:hover {
-            background: #3a3a45;
-            transform: translateY(-1px);
-        }
-
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            .company-container {
-                padding: 24px;
-            }
+            .work-container { padding: 24px; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .tracks-grid { grid-template-columns: 1fr; }
+        }
 
-            .company-hero h1 {
-                font-size: 28px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">
                 <i class="fab fa-github-alt"></i>
                 <span>NEFORCEO</span>
             </div>
-
             <div class="preloader-bar">
                 <div class="preloader-bar-fill"></div>
             </div>
@@ -258,7 +344,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="project.html" class="nav-link">Projects</a></li>
-                <li><a href="company.html" class="nav-link">Company</a></li>
+                <li><a href="company.html" class="nav-link">Work</a></li>
             </ul>
             <div class="nav-social">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -273,110 +359,127 @@
         </div>
     </nav>
 
-
     <main class="main-content">
-        <div class="company-container">
-            <div class="company-hero">
-                <div class="company-badge">
-                    <i class="fas fa-check-circle"></i>
-                    Open for Collaboration
+        <div class="work-container">
+
+            <!-- Hero -->
+            <div class="work-hero">
+                <div class="currently-badge">
+                    <span class="dot"></span>
+                    Currently Working Here
                 </div>
-                <h1>Building the Future Together</h1>
-                <p>I create modern tools for developers. Always open to new projects and partnerships.</p>
+                <div class="terminal-logo">
+                    <span class="prompt">$</span>
+                    <span class="cmd"> sudo</span>
+                    <span class="arg"> teach IT</span>
+                    <span class="cursor"></span>
+                </div>
+                <p class="work-hero-sub">Online IT education platform focused on practical, no-fluff programming training.</p>
             </div>
 
+            <!-- About -->
             <section class="section">
-                <h2 class="section-title"><i class="fas fa-rocket"></i> What I Do</h2>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-globe"></i> Web Development</span>
-                    </div>
-                    <p class="service-description">Full-cycle development — from website design to deployment. Creating modern web applications, APIs and services.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fab fa-python"></i> Python Development</span>
-                    </div>
-                    <p class="service-description">High-performance libraries and SDK development. Async programming, FastAPI, httpx and more.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-robot"></i> Telegram AI Bots</span>
-                    </div>
-                    <p class="service-description">Smart bots with artificial intelligence integration. ChatGPT, Claude and other LLMs for automation.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-shield-alt"></i> Telegram VPN Bots</span>
-                    </div>
-                    <p class="service-description">VPN bots development for Telegram. Proxy servers, tunneling and secure connections.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-comments"></i> Telegram Bots</span>
-                    </div>
-                    <p class="service-description">Any Telegram bots creation — shops, automation, admin panels, parsing and integrations.</p>
+                <h2 class="section-title"><i class="fas fa-info-circle"></i> About</h2>
+                <div class="about-card">
+                    <p>$ sudo teach IT is a Russian-language online school focused on backend and applied programming. Philosophy: teach fast, teach practical — zero academic padding. Students go from zero to their first job without spending years on theory. Courses are structured as tracks leading to role-based certifications, with 1,239 coding challenges embedded alongside video content.</p>
                 </div>
             </section>
 
+            <!-- Stats -->
             <section class="section">
-                <h2 class="section-title"><i class="fas fa-tools"></i> Tech Stack</h2>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fab fa-python"></i> Python</span>
+                <h2 class="section-title"><i class="fas fa-chart-bar"></i> Platform Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">3 880+</div>
+                        <div class="stat-label">Students enrolled</div>
                     </div>
-                    <p class="service-description">FastAPI, httpx, aiogram, pyrogram, discord.py, PIL, aiohttp, pydantic</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-server"></i> Backend</span>
+                    <div class="stat-card">
+                        <div class="stat-number">31 621+</div>
+                        <div class="stat-label">Lessons completed</div>
                     </div>
-                    <p class="service-description">FastAPI, Django, Flask, PostgreSQL, MongoDB, Redis, Docker, Linux</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fas fa-cloud"></i> DevOps & Cloud</span>
+                    <div class="stat-card">
+                        <div class="stat-number">1 239</div>
+                        <div class="stat-label">Coding problems</div>
                     </div>
-                    <p class="service-description">Docker, GitHub Actions, Nginx, SSL/TLS, AWS, VPS, CI/CD</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="service-name"><i class="fab fa-js"></i> Frontend & Other</span>
-                    </div>
-                    <p class="service-description">JavaScript, React, HTML/CSS, VS Code extensions, REST APIs, GraphQL</p>
                 </div>
             </section>
 
+            <!-- Course tracks -->
             <section class="section">
-                <div class="contact-section">
-                    <h3>Let's Discuss Your Project</h3>
-                    <p>Write to me and we'll find the best solution together</p>
-                    
-                    <div class="contact-buttons">
-                        <a href="mailto:n7for8572@gmail.com" class="contact-btn primary">
-                            <i class="fas fa-envelope"></i> Email
-                        </a>
-                        <a href="https://t.me/neforndu" target="_blank" class="contact-btn secondary">
-                            <i class="fab fa-telegram"></i> Telegram
-                        </a>
-                        <a href="https://github.com/ndugram" target="_blank" class="contact-btn secondary">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Course Tracks</h2>
+                <div class="tracks-grid">
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fab fa-python"></i></div>
+                        <div>
+                            <div class="track-name">Python & Backend</div>
+                            <div class="track-desc">Python PRO, Django, FastAPI, Advanced SQL, Docker, CI/CD</div>
+                        </div>
+                    </div>
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <div class="track-name">Telegram Bots</div>
+                            <div class="track-desc">Bot development from scratch, payments, admin panels</div>
+                        </div>
+                    </div>
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <div class="track-name">Machine Learning</div>
+                            <div class="track-desc">ML fundamentals, data science, neural networks</div>
+                        </div>
+                    </div>
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <div class="track-name">DevSecOps</div>
+                            <div class="track-desc">Security, Linux, automation, test engineering</div>
+                        </div>
+                    </div>
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fab fa-js"></i></div>
+                        <div>
+                            <div class="track-name">Web Development</div>
+                            <div class="track-desc">HTML/CSS, JavaScript, Go, full-stack projects</div>
+                        </div>
+                    </div>
+                    <div class="track-card">
+                        <div class="track-icon"><i class="fas fa-cube"></i></div>
+                        <div>
+                            <div class="track-name">3D & Game Dev</div>
+                            <div class="track-desc">Blender 3D modeling, Unity game development</div>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Alumni -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-trophy"></i> Graduates Work At</h2>
+                <p class="alumni-label">Companies where sudoteach alumni landed jobs</p>
+                <div class="alumni-logos">
+                    <img class="alumni-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Yandex_icon.svg" alt="Yandex" title="Yandex">
+                    <img class="alumni-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/VK_Compact_Logo_%282021-present%29.svg" alt="VK" title="VK">
+                    <img class="alumni-logo" src="https://toplogos.ru/images/logo-sber.png" alt="Sber" title="Sber">
+                    <img class="alumni-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/T-Bank_RU_logo.svg/2560px-T-Bank_RU_logo.svg.png" alt="T-Bank" title="T-Bank">
+                    <img class="alumni-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" title="Google">
+                    <img class="alumni-logo" src="https://cdn.worldvectorlogo.com/logos/tiktok-1.svg" alt="TikTok" title="TikTok">
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="section">
+                <div class="cta-section">
+                    <h3>Want to learn IT the fast way?</h3>
+                    <p>Practical courses, no fluff — from beginner to job-ready</p>
+                    <a href="https://sudoteach.com" target="_blank" class="cta-btn">
+                        <i class="fas fa-arrow-up-right-from-square"></i> Visit sudoteach.com
+                    </a>
+                </div>
+            </section>
+
         </div>
     </main>
-
 
     <footer class="footer">
         <div class="footer-social">
