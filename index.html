@@ -8,7 +8,7 @@
     <link rel="icon" href="img/neforicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&family=Rhodium+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,85 +25,296 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <i class="fab fa-github-alt"></i>
-                <span>NEFORCEO</span>
-            </a>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active" data-en="Home" data-ru="Главная">Home</a></li>
-                <li><a href="about.html" class="nav-link" data-en="About" data-ru="Обо мне">About</a></li>
-                <li><a href="project.html" class="nav-link" data-en="Projects" data-ru="Проекты">Projects</a></li>
-                <li><a href="company.html" class="nav-link" data-en="Work" data-ru="Работа">Work</a></li>
-                <li class="nav-lang-item">
-                    <button class="lang-toggle" aria-label="Switch language">RU</button>
-                </li>
-            </ul>
-            <div class="nav-social">
-                <button class="lang-toggle" aria-label="Switch language">RU</button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon moon-icon"></i>
-                    <i class="fas fa-sun sun-icon"></i>
-                </button>
-                <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-                <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-                <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
+    <main id="main">
+
+        <!-- ─── INTRO (fixed, white) ─── -->
+        <section class="intro" id="intro">
+            <div class="intro__trim-overflow">
+                <div class="intro__wrapper">
+                    <div class="intro__inner">
+
+                        <div class="profile-info">
+                            <h1 class="profile-info__name-heading">NEFORCEO</h1>
+                            <img src="https://github.com/neforceo.png" alt="NEFORCEO" class="profile-info__image">
+                            <div class="profile-info__contacts">
+                                <h2 class="profile-info__contacts-heading" data-en="Contacts:" data-ru="Контакты:">Contacts:</h2>
+                                <div class="contact-links">
+                                    <a href="mailto:n7for8572@gmail.com" class="contact-links__mail">n7for8572@gmail.com</a>
+                                    <ul class="contact-links__social-list">
+                                        <li class="contact-links__social-item"><a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+                                        <li class="contact-links__social-item"><a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                                        <li class="contact-links__social-item"><a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-me">
+                            <div class="about-me__main">
+                                <div class="about-me__header">
+                                    <h2 class="about-me__title"
+                                        data-en="Backend Developer &amp; Bot Creator"
+                                        data-ru="Бэкенд-разработчик и создатель ботов">
+                                        Backend Developer &amp; Bot Creator
+                                    </h2>
+                                    <button class="language-button en" id="langToggle" aria-label="Switch language">
+                                        <strong class="language-button__selected">EN</strong> RU
+                                    </button>
+                                </div>
+                                <p class="about-me__description"
+                                   data-en="My name is NEFORCEO, and I'm a software developer from Russia. I specialize in building Telegram bots, REST APIs, and AI-powered tools. I work with Python, FastAPI, and Django to deliver fast and scalable backend solutions.&lt;br&gt;&lt;br&gt;Started coding in June 2022 with zero experience — now I build libraries, CLIs, and web services. Always open to new projects and collaborations."
+                                   data-ru="Меня зовут NEFORCEO, я разработчик ПО из России. Специализируюсь на Telegram-ботах, REST API и AI-инструментах. Работаю с Python, FastAPI и Django.&lt;br&gt;&lt;br&gt;Начал кодить в июне 2022 с нуля — сейчас пишу библиотеки, CLI-инструменты и веб-сервисы. Открыт для новых проектов и коллабораций.">
+                                    My name is NEFORCEO, and I'm a software developer from Russia. I specialize in building Telegram bots, REST APIs, and AI-powered tools. I work with Python, FastAPI, and Django to deliver fast and scalable backend solutions.<br><br>
+                                    Started coding in June 2022 with zero experience — now I build libraries, CLIs, and web services. Always open to new projects and collaborations.
+                                </p>
+                            </div>
+                            <div class="about-me__skills">
+                                <h2 class="about-me__skills-heading" data-en="Stack:" data-ru="Стек:">Stack:</h2>
+                                <div class="skills-form">
+                                    <div class="skills-form__group">
+                                        <span class="skills-form__label selected"><span class="skills-form__text">Python</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">FastAPI</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">Django</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">Telegram Bot API</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">AI / ML</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">REST APIs</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">TypeScript</span></span>
+                                        <span class="skills-form__label"><span class="skills-form__text">Git</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <main class="main-content">
-        <div class="home-container">
-            <img src="https://github.com/neforceo.png" alt="NEFORCEO" class="profile-img">
+        <!-- ─── DARK OVERLAY (slides over intro on scroll) ─── -->
+        <div class="dark-overlay">
 
-            <h1 class="home-title"
-                data-en="Hey! I'm &lt;a href='https://github.com/neforceo' target='_blank'&gt;@NEFORCEO&lt;/a&gt; (White NEFOR)"
-                data-ru="Привет! Я &lt;a href='https://github.com/neforceo' target='_blank'&gt;@NEFORCEO&lt;/a&gt; (White NEFOR)">
-                Hey! I'm <a href="https://github.com/neforceo" target="_blank">@NEFORCEO</a> (White NEFOR)
-            </h1>
+            <!-- ABOUT -->
+            <section class="dark-section" id="about">
+                <div class="dark-section__inner">
+                    <h2 class="dark-section__title" data-en="ABOUT:" data-ru="ОБО МНЕ:">ABOUT:</h2>
 
-            <h2 class="home-subtitle"
-                data-en="I'm a software developer and Python Telegram bot creator."
-                data-ru="Я разработчик ПО и создатель Telegram-ботов на Python.">
-                I'm a software developer and Python Telegram bot creator.
-            </h2>
+                    <div class="dark-about">
+                        <div class="dark-about__text">
+                            <p data-en="My journey in IT began in June 2022, when I decided to start writing Telegram bots with zero programming knowledge. Then I started diving deeper into this topic and I really liked it."
+                               data-ru="Мой путь в ИТ начался в июне 2022 года, когда я решил начать писать Telegram-ботов с нулевыми знаниями. Потом я начал углубляться в эту тему — и мне это очень понравилось.">
+                                My journey in IT began in June 2022, when I decided to start writing Telegram bots with zero programming knowledge. Then I started diving deeper into this topic and I really liked it.
+                            </p>
+                            <p data-en="In September 2025, I began learning FastAPI. I continue writing APIs to this day, expanding my mindset and skills. Currently I'm building libraries, CLI tools, and VS Code extensions."
+                               data-ru="В сентябре 2025 года начал изучать FastAPI. По сей день пишу API, расширяю кругозор и навыки. Сейчас создаю библиотеки, CLI-инструменты и расширения VS Code.">
+                                In September 2025, I began learning FastAPI. I continue writing APIs to this day, expanding my mindset and skills. Currently I'm building libraries, CLI tools, and VS Code extensions.
+                            </p>
+                        </div>
+                        <div class="dark-about__skills">
+                            <h3 class="dark-about__skills-heading" data-en="What I do:" data-ru="Чем занимаюсь:">What I do:</h3>
+                            <ul class="dark-list">
+                                <li><i class="fab fa-telegram"></i><span data-en="Create Telegram bots of any complexity" data-ru="Создаю Telegram-ботов любой сложности">Create Telegram bots of any complexity</span></li>
+                                <li><i class="fas fa-plug"></i><span data-en="Build REST APIs with FastAPI and Django" data-ru="Разрабатываю REST API на FastAPI и Django">Build REST APIs with FastAPI and Django</span></li>
+                                <li><i class="fas fa-brain"></i><span data-en="Work with Artificial Intelligence" data-ru="Работаю с искусственным интеллектом">Work with Artificial Intelligence</span></li>
+                                <li><i class="fas fa-cogs"></i><span data-en="Automate processes and workflows" data-ru="Автоматизирую процессы и рабочие потоки">Automate processes and workflows</span></li>
+                                <li><i class="fas fa-globe"></i><span data-en="Develop modern web services" data-ru="Разрабатываю современные веб-сервисы">Develop modern web services</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <p class="home-description"
-                data-en="I build APIs and work with Artificial Intelligence."
-                data-ru="Пишу API и работаю с искусственным интеллектом.">
-                I build APIs and work with Artificial Intelligence.
-            </p>
+            <!-- PROJECTS -->
+            <section class="dark-section" id="projects">
+                <div class="dark-section__inner">
+                    <h2 class="dark-section__title" data-en="PROJECTS:" data-ru="ПРОЕКТЫ:">PROJECTS:</h2>
+                </div>
 
-            <p class="home-description"
-                data-en="I create bots, automation tools, and modern web services."
-                data-ru="Создаю ботов, инструменты автоматизации и современные веб-сервисы.">
-                I create bots, automation tools, and modern web services.
-            </p>
-        </div>
+                <div class="projects__swiper">
+                    <div class="projects__swiper-inner" id="projectsContainer">
+
+                        <div class="projects__swiper-slide projects__swiper-slide--wide">
+                            <article class="project" data-project="fasthttp">
+                                <div class="project__accent"><i class="fab fa-python"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">fasthttp-client</h3>
+                                        <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                    </div>
+                                    <p class="project__description" data-en="Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx." data-ru="Современный HTTP-клиент с декораторами, async, HTTP/2 и цветным логированием на базе httpx.">Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Async, HTTP/2, Rate Limiting, Middleware</span></div>
+                                    <button class="project__info-btn" data-open="fasthttp" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="django-pydantic">
+                                <div class="project__accent"><i class="fab fa-python"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">django-pydantic-client</h3>
+                                        <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                    </div>
+                                    <p class="project__description" data-en="Instantiate Pydantic v2 models directly from Django HttpRequest — one-line validation with automatic 422 JSON error responses." data-ru="Pydantic v2-модели из Django HttpRequest — валидация в одну строку с автоматическими 422 JSON-ответами.">Instantiate Pydantic v2 models directly from Django HttpRequest — one-line validation with automatic 422 JSON error responses.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Django, Pydantic v2, Validation, Middleware</span></div>
+                                    <button class="project__info-btn" data-open="django-pydantic" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="fastvk">
+                                <div class="project__accent"><i class="fab fa-vk"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">fastvk</h3>
+                                        <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                    </div>
+                                    <p class="project__description" data-en="Async VK bot framework with FastAPI-style decorators, aiogram-style FSM, auto-retry, and a real-time monitoring dashboard." data-ru="Асинхронный фреймворк для VK-ботов с декораторами в стиле FastAPI, FSM как в aiogram и дашбордом мониторинга в реальном времени.">Async VK bot framework with FastAPI-style decorators, aiogram-style FSM, auto-retry, and a real-time monitoring dashboard.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Async, FSM, Middleware, Dashboard</span></div>
+                                    <button class="project__info-btn" data-open="fastvk" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="fastgram">
+                                <div class="project__accent"><i class="fas fa-terminal"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">fastgram-cli</h3>
+                                        <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                    </div>
+                                    <p class="project__description" data-en="CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates." data-ru="CLI-инструмент для FastAPI. Инициализируй проекты с Django-подобной структурой и SSL.">CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">FastAPI, CLI, SSL, Middleware</span></div>
+                                    <button class="project__info-btn" data-open="fastgram" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="projects__swiper-slide projects__swiper-slide--wide">
+                            <article class="project" data-project="fasthttp-ext">
+                                <div class="project__accent"><i class="fas fa-code"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">fasthttp-extension</h3>
+                                        <span class="project__type" data-en="VS Code Extension" data-ru="Расширение VS Code">VS Code Extension</span>
+                                    </div>
+                                    <p class="project__description" data-en="VS Code extension for FastHTTP — scaffold projects from Command Palette, explore routes in sidebar, CodeLens actions, inline error detection." data-ru="Расширение VS Code для FastHTTP — создавай проекты, исследуй маршруты и получай CodeLens-действия.">VS Code extension for FastHTTP — scaffold projects from Command Palette, explore routes in sidebar, CodeLens actions, inline error detection.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">TypeScript, Route Explorer, Diagnostics, CodeLens</span></div>
+                                    <button class="project__info-btn" data-open="fasthttp-ext" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="ndu-dark">
+                                <div class="project__accent"><i class="fas fa-palette"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">ndu-dark</h3>
+                                        <span class="project__type" data-en="VS Code Theme" data-ru="Тема VS Code">VS Code Theme</span>
+                                    </div>
+                                    <p class="project__description" data-en="Dark theme for VS Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting." data-ru="Тёмная тема VS Code с плавающими стеклянными панелями, скруглёнными углами и тёплой подсветкой.">Dark theme for VS Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Glass Effect, Floating Panels, Animations, Rounded</span></div>
+                                    <button class="project__info-btn" data-open="ndu-dark" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="hitmos">
+                                <div class="project__accent"><i class="fas fa-robot"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">hitmos</h3>
+                                        <span class="project__type" data-en="CLI Tool" data-ru="CLI-инструмент">CLI Tool</span>
+                                    </div>
+                                    <p class="project__description" data-en="AI terminal assistant powered by OpenRouter — streaming Markdown responses, multi-model switching, and automatic project-context injection." data-ru="AI-ассистент для терминала на OpenRouter — потоковый вывод в Markdown, переключение между моделями и автоматический контекст проекта.">AI terminal assistant powered by OpenRouter — streaming Markdown responses, multi-model switching, and automatic project-context injection.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Streaming, Multi-Model, CLI, SSE</span></div>
+                                    <button class="project__info-btn" data-open="hitmos" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                            <article class="project" data-project="fastui2">
+                                <div class="project__accent"><i class="fas fa-window-maximize"></i></div>
+                                <div class="project__content">
+                                    <div class="project__header">
+                                        <h3 class="project__title">fastui2</h3>
+                                        <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                    </div>
+                                    <p class="project__description" data-en="Server-rendered UI library for Python — decorator-based pages compile straight to HTML with Pydantic-validated components and zero JavaScript." data-ru="Библиотека серверного рендеринга UI для Python — страницы на декораторах компилируются в HTML с Pydantic-валидацией компонентов и без JavaScript.">Server-rendered UI library for Python — decorator-based pages compile straight to HTML with Pydantic-validated components and zero JavaScript.</p>
+                                    <div class="project__skills"><span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span><span class="project__skills-text">Pydantic v2, Routing, Zero JS, Swagger UI</span></div>
+                                    <button class="project__info-btn" data-open="fastui2" data-en="More info" data-ru="Подробнее">More info</button>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+                    <button type="button" class="projects__arrow projects__arrow--left" id="arrowLeft"></button>
+                    <button type="button" class="projects__arrow projects__arrow--right active" id="arrowRight"></button>
+                </div>
+
+                <div class="projects__slide-buttons" id="slideButtons" style="justify-content:center;margin-top:24px;">
+                    <button type="button" class="projects__slide-button active" data-to-index="0">1</button>
+                    <button type="button" class="projects__slide-button" data-to-index="1">2</button>
+                </div>
+            </section>
+
+            <!-- WORK -->
+            <section class="dark-section" id="work">
+                <div class="dark-section__inner">
+                    <h2 class="dark-section__title" data-en="WORK:" data-ru="РАБОТА:">WORK:</h2>
+
+                    <div class="work-card">
+                        <div class="work-card__header">
+                            <div class="work-card__status">
+                                <span class="work-dot"></span>
+                                <span data-en="Currently working here" data-ru="Работаю здесь прямо сейчас">Currently working here</span>
+                            </div>
+                            <h3 class="work-card__company">$ sudo teach IT</h3>
+                            <p class="work-card__role" data-en="Online school of IT education — fast, practical, no fluff." data-ru="Онлайн-школа ИТ-образования — быстро, практично, без воды.">Online school of IT education — fast, practical, no fluff.</p>
+                            <a href="https://sudoteach.com" target="_blank" class="work-card__link" data-en="Visit Website →" data-ru="Открыть сайт →">Visit Website →</a>
+                        </div>
+                        <div class="work-card__stats">
+                            <div class="work-stat">
+                                <span class="work-stat__val">3 880+</span>
+                                <span class="work-stat__lbl" data-en="Students" data-ru="Студентов">Students</span>
+                            </div>
+                            <div class="work-stat">
+                                <span class="work-stat__val">31 621+</span>
+                                <span class="work-stat__lbl" data-en="Lessons completed" data-ru="Уроков пройдено">Lessons completed</span>
+                            </div>
+                            <div class="work-stat">
+                                <span class="work-stat__val">1 239</span>
+                                <span class="work-stat__lbl" data-en="Coding problems" data-ru="Задач в базе">Coding problems</span>
+                            </div>
+                        </div>
+                        <p class="work-card__desc"
+                           data-en="Role-based certifications: Bot Developer, Python Senior, and more. 1,796 video lessons across all tracks. Partner of IT Park Uzbekistan."
+                           data-ru="Ролевые сертификаты: Bot Developer, Python Senior и другие. 1 796 видеоуроков. Партнёр IT Park Uzbekistan.">
+                            Role-based certifications: Bot Developer, Python Senior, and more. 1,796 video lessons across all tracks. Partner of IT Park Uzbekistan.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div><!-- /dark-overlay -->
+
     </main>
 
-    <footer class="footer">
-        <div class="footer-social">
-            <button class="theme-toggle" id="themeToggleFooter" aria-label="Toggle theme">
-                <i class="fas fa-moon moon-icon"></i>
-                <i class="fas fa-sun sun-icon"></i>
-            </button>
-            <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-            <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-            <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-            <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
+    <!-- Popup Modal -->
+    <div class="popup hidden" id="popup">
+        <div class="popup__trim-overflow">
+            <div class="popup__wrapper">
+                <div class="popup__inner">
+                    <div class="popup__content">
+                        <div class="popup__header">
+                            <div class="popup__heading">
+                                <h3 class="popup__title" id="popupTitle"></h3>
+                                <span class="popup__type" id="popupType"></span>
+                            </div>
+                            <button type="button" class="popup__close-button" id="popupClose"></button>
+                        </div>
+                        <p class="popup__description" id="popupDesc"></p>
+                        <div class="popup__skills">
+                            <span class="popup__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                            <span class="popup__skills-text" id="popupSkills"></span>
+                        </div>
+                        <div class="popup__links">
+                            <span class="popup__links-title" data-en="Links:" data-ru="Ссылки:">Links:</span>
+                            <ul class="popup__links-list" id="popupLinks"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="footer-text"
-           data-en="© 2026 NEFORCEO. All rights reserved."
-           data-ru="© 2026 NEFORCEO. Все права защищены.">
-           © 2026 NEFORCEO. All rights reserved.
-        </p>
-    </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

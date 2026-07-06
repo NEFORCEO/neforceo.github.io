@@ -8,152 +8,8 @@
     <link rel="icon" href="img/neforicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;500;600;700&family=Rhodium+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .projects-container {
-            padding: 40px;
-            background: var(--color-white);
-            border-radius: 24px;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto 20px;
-        }
-
-        @media (min-width: 1024px) {
-            .projects-container { padding: 60px; }
-        }
-
-        .projects-intro {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .projects-intro p {
-            color: var(--color-text-gray);
-            font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section { margin-bottom: 48px; }
-        .section:last-child { margin-bottom: 0; }
-
-        .section-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: var(--color-total-black);
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title i { color: var(--color-brand-blue); }
-
-        .project-card {
-            background: var(--color-gray);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-        }
-
-        .project-card:last-child { margin-bottom: 0; }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .project-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--color-brand-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .project-name i { font-size: 14px; opacity: 0.6; }
-
-        .project-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 13px;
-            color: var(--color-text-gray);
-        }
-
-        .project-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .project-description {
-            color: var(--color-total-black);
-            font-size: 15px;
-            line-height: 1.7;
-            opacity: 0.8;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .tag {
-            font-size: 12px;
-            padding: 6px 12px;
-            border-radius: 8px;
-            background: #2e73ff;
-            color: white;
-            font-weight: 500;
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .github-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--color-brand-blue);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            margin-top: 32px;
-        }
-
-        .github-btn:hover {
-            background: #1f5fd9;
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 768px) {
-            .projects-container { padding: 24px; }
-            .project-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -169,214 +25,244 @@
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <i class="fab fa-github-alt"></i>
-                <span>NEFORCEO</span>
-            </a>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link" data-en="Home" data-ru="Главная">Home</a></li>
-                <li><a href="about.html" class="nav-link" data-en="About" data-ru="Обо мне">About</a></li>
-                <li><a href="project.html" class="nav-link active" data-en="Projects" data-ru="Проекты">Projects</a></li>
-                <li><a href="company.html" class="nav-link" data-en="Work" data-ru="Работа">Work</a></li>
-                <li class="nav-lang-item">
-                    <button class="lang-toggle" aria-label="Switch language">RU</button>
-                </li>
-            </ul>
-            <div class="nav-social">
-                <button class="lang-toggle" aria-label="Switch language">RU</button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon moon-icon"></i>
-                    <i class="fas fa-sun sun-icon"></i>
-                </button>
-                <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-                <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-                <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
+    <main>
+        <section class="projects" id="projects">
+            <div class="projects__wrapper">
+                <div class="projects__inner">
+
+                    <div class="projects__header">
+                        <h2 class="projects__title" data-en="PROJECTS:" data-ru="ПРОЕКТЫ:">PROJECTS:</h2>
+                        <p class="projects__subtitle"
+                           data-en="Libraries, CLIs, and tools I've built"
+                           data-ru="Библиотеки, CLI-инструменты и утилиты, которые я написал">
+                            Libraries, CLIs, and tools I've built
+                        </p>
+                    </div>
+
+                    <div class="projects__swiper">
+                        <div class="projects__swiper-inner" id="projectsContainer">
+
+                            <!-- Slide 1 -->
+                            <div class="projects__swiper-slide projects__swiper-slide--wide">
+
+                                <article class="project" data-project="fasthttp">
+                                    <div class="project__accent"><i class="fab fa-python"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">fasthttp-client</h3>
+                                            <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx."
+                                           data-ru="Современный HTTP-клиент с декораторами, async-поддержкой, HTTP/2 и цветным логированием на базе httpx.">
+                                            Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Async, HTTP/2, Rate Limiting, Middleware</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="fasthttp"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="django-pydantic">
+                                    <div class="project__accent"><i class="fab fa-python"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">django-pydantic-client</h3>
+                                            <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="Instantiate Pydantic v2 models directly from Django HttpRequest — one-line validation with automatic 422 JSON error responses and zero boilerplate."
+                                           data-ru="Создавай Pydantic v2-модели из Django HttpRequest — валидация в одну строку с автоматическими 422 JSON-ответами.">
+                                            Instantiate Pydantic v2 models directly from Django HttpRequest — one-line validation with automatic 422 JSON error responses.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Django, Pydantic v2, Validation, Middleware</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="django-pydantic"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="fastvk">
+                                    <div class="project__accent"><i class="fab fa-vk"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">fastvk</h3>
+                                            <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="Async VK bot framework with FastAPI-style decorators, aiogram-style FSM, auto-retry, and a real-time monitoring dashboard."
+                                           data-ru="Асинхронный фреймворк для VK-ботов с декораторами в стиле FastAPI, FSM как в aiogram и дашбордом мониторинга в реальном времени.">
+                                            Async VK bot framework with FastAPI-style decorators, aiogram-style FSM, auto-retry, and a real-time monitoring dashboard.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Async, FSM, Middleware, Dashboard</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="fastvk"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="fastgram">
+                                    <div class="project__accent"><i class="fas fa-terminal"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">fastgram-cli</h3>
+                                            <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates."
+                                           data-ru="CLI-инструмент для FastAPI. Инициализируй проекты с Django-подобной структурой, middleware и SSL.">
+                                            CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">FastAPI, CLI, SSL, Middleware</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="fastgram"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                            </div><!-- /slide 1 -->
+
+                            <!-- Slide 2 -->
+                            <div class="projects__swiper-slide projects__swiper-slide--wide">
+
+                                <article class="project" data-project="fasthttp-ext">
+                                    <div class="project__accent"><i class="fas fa-code"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">fasthttp-extension</h3>
+                                            <span class="project__type" data-en="VS Code Extension" data-ru="Расширение VS Code">VS Code Extension</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="VS Code extension for FastHTTP — scaffold projects from Command Palette, explore routes in a sidebar, get CodeLens actions, and catch handler errors inline."
+                                           data-ru="Расширение VS Code для FastHTTP — создавай проекты, исследуй маршруты и получай CodeLens-действия над декораторами.">
+                                            VS Code extension for FastHTTP — scaffold projects from Command Palette, explore routes in a sidebar, get CodeLens actions, and catch handler errors inline.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">TypeScript, Route Explorer, Diagnostics, CodeLens</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="fasthttp-ext"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="ndu-dark">
+                                    <div class="project__accent"><i class="fas fa-palette"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">ndu-dark</h3>
+                                            <span class="project__type" data-en="VS Code Theme" data-ru="Тема VS Code">VS Code Theme</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="Dark theme for Visual Studio Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting."
+                                           data-ru="Тёмная тема для VS Code с плавающими стеклянными панелями, скруглёнными углами и тёплой подсветкой синтаксиса.">
+                                            Dark theme for Visual Studio Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Glass Effect, Floating Panels, Animations, Rounded</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="ndu-dark"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="hitmos">
+                                    <div class="project__accent"><i class="fas fa-robot"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">hitmos</h3>
+                                            <span class="project__type" data-en="CLI Tool" data-ru="CLI-инструмент">CLI Tool</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="AI terminal assistant powered by OpenRouter — streaming Markdown responses, multi-model switching, and automatic project-context injection."
+                                           data-ru="AI-ассистент для терминала на OpenRouter — потоковый вывод в Markdown, переключение между моделями и автоматический контекст проекта.">
+                                            AI terminal assistant powered by OpenRouter — streaming Markdown responses, multi-model switching, and automatic project-context injection.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Streaming, Multi-Model, CLI, SSE</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="hitmos"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                                <article class="project" data-project="fastui2">
+                                    <div class="project__accent"><i class="fas fa-window-maximize"></i></div>
+                                    <div class="project__content">
+                                        <div class="project__header">
+                                            <h3 class="project__title">fastui2</h3>
+                                            <span class="project__type" data-en="Python Library" data-ru="Библиотека Python">Python Library</span>
+                                        </div>
+                                        <p class="project__description"
+                                           data-en="Server-rendered UI library for Python — decorator-based pages compile straight to HTML with Pydantic-validated components and zero JavaScript."
+                                           data-ru="Библиотека серверного рендеринга UI для Python — страницы на декораторах компилируются в HTML с Pydantic-валидацией компонентов и без JavaScript.">
+                                            Server-rendered UI library for Python — decorator-based pages compile straight to HTML with Pydantic-validated components and zero JavaScript.
+                                        </p>
+                                        <div class="project__skills">
+                                            <span class="project__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                                            <span class="project__skills-text">Pydantic v2, Routing, Zero JS, Swagger UI</span>
+                                        </div>
+                                        <button class="project__info-btn" data-open="fastui2"
+                                                data-en="More info" data-ru="Подробнее">More info</button>
+                                    </div>
+                                </article>
+
+                            </div><!-- /slide 2 -->
+
+                        </div><!-- /swiper-inner -->
+
+                        <button type="button" class="projects__arrow projects__arrow--left" id="arrowLeft"></button>
+                        <button type="button" class="projects__arrow projects__arrow--right active" id="arrowRight"></button>
+                    </div><!-- /swiper -->
+
+                    <div class="projects__slide-buttons" id="slideButtons">
+                        <button type="button" class="projects__slide-button active" data-to-index="0">1</button>
+                        <button type="button" class="projects__slide-button" data-to-index="1">2</button>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <div class="projects-container">
-            <div class="projects-intro">
-                <h1 class="page-title" data-en="Projects" data-ru="Проекты">Projects</h1>
-                <p data-en="On this page, I'd like to share with you the projects I've created and continue to maintain."
-                   data-ru="На этой странице я хочу поделиться проектами, которые создал и продолжаю поддерживать.">
-                    On this page, I'd like to share with you the projects I've created and continue to maintain.
-                </p>
-            </div>
-
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fab fa-python"></i>
-                    <span data-en="Python Libraries" data-ru="Библиотеки Python">Python Libraries</span>
-                </h2>
-
-                <a href="https://github.com/ndugram/fasthttp" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">fasthttp-client <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span><i class="fas fa-star"></i> <span data-en="New" data-ru="Новый">New</span></span>
-                            <span>Python 3.10+</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx."
-                       data-ru="Современный HTTP-клиент с декораторами, async-поддержкой, HTTP/2, ограничением запросов и цветным логированием на базе httpx.">
-                        Modern HTTP client with decorators, async support, HTTP/2, rate limiting, and beautiful colored logging built on httpx.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Async</span>
-                        <span class="tag">HTTP/2</span>
-                        <span class="tag">Rate Limiting</span>
-                        <span class="tag">Middleware</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/NEFORCEO/django-pydantic" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">django-pydantic-client <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span><i class="fas fa-star"></i> <span data-en="New" data-ru="Новый">New</span></span>
-                            <span>Python 3.10+</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="Instantiate Pydantic v2 models directly from Django HttpRequest — one-line request validation with automatic 422 JSON error responses and zero boilerplate."
-                       data-ru="Создавай Pydantic v2-модели прямо из Django HttpRequest — валидация в одну строку с автоматическими 422 JSON-ответами без лишнего кода.">
-                        Instantiate Pydantic v2 models directly from Django HttpRequest — one-line request validation with automatic 422 JSON error responses and zero boilerplate.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Django</span>
-                        <span class="tag">Pydantic v2</span>
-                        <span class="tag">Validation</span>
-                        <span class="tag">Middleware</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/ndugram/mkpy" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">mkpy-client <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span><i class="fas fa-star"></i> <span data-en="New" data-ru="Новый">New</span></span>
-                            <span>Python 3.9+</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="Minimalistic documentation generator from Markdown files with auto-routing, themes, and built-in HTTP server."
-                       data-ru="Минималистичный генератор документации из Markdown-файлов с авто-роутингом, темами и встроенным HTTP-сервером.">
-                        Minimalistic documentation generator from Markdown files with auto-routing, themes, and built-in HTTP server.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Markdown</span>
-                        <span class="tag">Auto Routes</span>
-                        <span class="tag">CLI</span>
-                        <span class="tag">Themes</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/ndugram/fastgram-cli" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">fastgram-cli <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span><i class="fas fa-star"></i> <span data-en="New" data-ru="Новый">New</span></span>
-                            <span>Python 3.10+</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates."
-                       data-ru="CLI-инструмент для разработчиков FastAPI. Инициализируй проекты с Django-подобной структурой, middleware и SSL-сертификатами.">
-                        CLI tool for FastAPI developers. Initialize projects with Django-like structure, middleware, and SSL certificates.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">CLI</span>
-                        <span class="tag">SSL</span>
-                        <span class="tag">Middleware</span>
-                    </div>
-                </a>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-code"></i>
-                    <span data-en="VS Code Extensions" data-ru="Расширения VS Code">VS Code Extensions</span>
-                </h2>
-
-                <a href="https://github.com/ndugram/fasthttp-extension" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">fasthttp-extension <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span><i class="fas fa-star"></i> <span data-en="New" data-ru="Новый">New</span></span>
-                            <span>TypeScript</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="VS Code extension for FastHTTP — scaffold projects from Command Palette, explore all routes in a sidebar, get CodeLens actions above decorators, and catch handler errors inline."
-                       data-ru="Расширение VS Code для FastHTTP — создавай проекты из Command Palette, исследуй маршруты в сайдбаре, получай CodeLens-действия над декораторами и лови ошибки хэндлеров прямо в редакторе.">
-                        VS Code extension for FastHTTP — scaffold projects from Command Palette, explore all routes in a sidebar, get CodeLens actions above decorators, and catch handler errors inline.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Route Explorer</span>
-                        <span class="tag">Diagnostics</span>
-                        <span class="tag">CodeLens</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/ndugram/ndu-dark" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-name">ndu-dark <i class="fas fa-arrow-up-right-from-square"></i></span>
-                        <div class="project-meta">
-                            <span>v1.1.0</span>
-                            <span data-en="Theme" data-ru="Тема">Theme</span>
-                        </div>
-                    </div>
-                    <p class="project-description"
-                       data-en="Dark theme for Visual Studio Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting."
-                       data-ru="Тёмная тема для Visual Studio Code с плавающими стеклянными панелями, скруглёнными углами, плавными анимациями и тёплой подсветкой синтаксиса.">
-                        Dark theme for Visual Studio Code with floating glass-like panels, rounded corners, smooth animations, and warm syntax highlighting.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Glass Effect</span>
-                        <span class="tag">Floating Panels</span>
-                        <span class="tag">Animations</span>
-                        <span class="tag">Rounded</span>
-                    </div>
-                </a>
-            </section>
-
-            <div style="text-align: center;">
-                <a href="https://github.com/ndugram" target="_blank" class="github-btn">
-                    <i class="fab fa-github"></i>
-                    <span data-en="View all on GitHub" data-ru="Все проекты на GitHub">View all on GitHub</span>
-                </a>
-            </div>
-        </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-social">
-            <button class="theme-toggle" id="themeToggleFooter" aria-label="Toggle theme">
-                <i class="fas fa-moon moon-icon"></i>
-                <i class="fas fa-sun sun-icon"></i>
-            </button>
-            <a href="https://github.com/neforceo" target="_blank"><i class="fab fa-github-alt"></i></a>
-            <a href="https://t.me/neforndu" target="_blank"><i class="fab fa-telegram"></i></a>
-            <a href="https://vk.com/neforceo" target="_blank"><i class="fab fa-vk"></i></a>
-            <a href="mailto:n7for8572@gmail.com"><i class="fas fa-envelope"></i></a>
+    <!-- Popup Modal -->
+    <div class="popup hidden" id="popup">
+        <div class="popup__trim-overflow">
+            <div class="popup__wrapper">
+                <div class="popup__inner">
+                    <div class="popup__content">
+                        <div class="popup__header">
+                            <div class="popup__heading">
+                                <h3 class="popup__title" id="popupTitle"></h3>
+                                <span class="popup__type" id="popupType"></span>
+                            </div>
+                            <button type="button" class="popup__close-button" id="popupClose"></button>
+                        </div>
+                        <p class="popup__description" id="popupDesc"></p>
+                        <div class="popup__skills">
+                            <span class="popup__skills-title" data-en="Stack: " data-ru="Стек: ">Stack: </span>
+                            <span class="popup__skills-text" id="popupSkills"></span>
+                        </div>
+                        <div class="popup__links">
+                            <span class="popup__links-title" data-en="Links:" data-ru="Ссылки:">Links:</span>
+                            <ul class="popup__links-list" id="popupLinks"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="footer-text"
-           data-en="© 2026 NEFORCEO. All rights reserved."
-           data-ru="© 2026 NEFORCEO. Все права защищены.">
-           © 2026 NEFORCEO. All rights reserved.
-        </p>
-    </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
