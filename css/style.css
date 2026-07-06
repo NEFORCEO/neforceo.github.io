@@ -732,6 +732,14 @@ body {
     .dark-about { grid-template-columns: 1fr; row-gap: 40px; }
     .work-card { padding: 32px 24px; border-radius: 40px; }
     .work-card__stats { column-gap: 24px; }
+
+    .intro__inner {
+        flex-direction: column;
+        row-gap: 40px;
+        padding: 50px 24px;
+    }
+    .profile-info { width: 100%; }
+    .about-me { width: 100%; max-width: 100%; }
 }
 
 .projects {
@@ -996,6 +1004,25 @@ body {
 }
 .projects__slide-button.active { color: var(--color-secondary); }
 .projects__slide-button.active::after { transform: translateY(0); }
+
+@media(max-width: 900px) {
+    .projects__swiper { padding: 0 30px; }
+    .projects__swiper-slide--wide { grid-template-columns: 1fr; }
+    .projects__arrow { width: 30px; }
+}
+
+@media(max-width: 480px) {
+    .profile-info__image { width: 160px; height: 160px; }
+    .project:nth-child(odd),
+    .project:nth-child(even) {
+        flex-direction: column;
+        padding: 0;
+        border-radius: 40px;
+        min-height: unset;
+    }
+    .project__accent { width: 100%; height: 56px; }
+    .project__header { flex-wrap: wrap; row-gap: 6px; }
+}
 
 .popup {
     background: var(--bg-primary);
