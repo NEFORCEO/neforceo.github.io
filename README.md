@@ -1,4 +1,6 @@
-<img style="border-radius: 100%; max-height: 15rem;" src="https://github.com/neforceo.png">
+<p align="center">
+  <img style="border-radius: 100%; max-height: 15rem;" src="https://github.com/neforceo.png">
+</p>
 
 <div style="font-size: 2em;" markdown="1">
 
