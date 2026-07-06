@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var arrowRight = document.getElementById('arrowRight');
         var slideButtons = document.querySelectorAll('.projects__slide-button');
 
-        function goToSlide(index) {
+        var goToSlide = function (index) {
             currentSlide = index;
 
             swiperInner.style.transform = 'translateX(calc(' + (-index) + ' * (100% + 100px)))';
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (arrowLeft)  arrowLeft.classList.toggle('active',  index > 0);
             if (arrowRight) arrowRight.classList.toggle('active', index < slideCount - 1);
-        }
+        };
 
         if (arrowLeft) {
             arrowLeft.addEventListener('click', function () {
