@@ -1,6 +1,8 @@
-<p align="center">
-  <img style="border-radius: 100%; max-height: 15rem;" src="https://github.com/neforceo.png">
-</p>
+<img src="img/bg-top.png" width="200" align="left">
+
+<div align="center">
+
+<img style="border-radius: 100%; max-height: 15rem;" src="https://github.com/neforceo.png">
 
 <div style="font-size: 2em;" markdown="1">
 
@@ -17,3 +19,7 @@ I'm a software developer and Python Telegram bot creator. 🚀
 I build APIs and work with Artificial Intelligence. 🧠
 
 I create bots, automation tools, and modern web services. 🎯
+
+</div>
+
+<img src="img/bg-bottom.png" width="200" align="right">
