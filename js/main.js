@@ -288,6 +288,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    /* ── Liquid Glass ────────────────────────────────────────── */
+    (function initLiquidGlass() {
+        if (!document.getElementById('lg-refract')) {
+            var NS = 'http://www.w3.org/2000/svg';
+            var svg = document.createElementNS(NS, 'svg');
+            svg.setAttribute('aria-hidden', 'true');
+            svg.setAttribute('width', '0');
+            svg.setAttribute('height', '0');
+            svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
+            svg.innerHTML =
+                '<filter id="lg-refract" x="-20%" y="-20%" width="140%" height="140%">' +
+                '<feTurbulence type="fractalNoise" baseFrequency="0.008 0.013" numOctaves="2" seed="7" result="noise"/>' +
+                '<feGaussianBlur in="noise" stdDeviation="2" result="soft"/>' +
+                '<feDisplacementMap in="SourceGraphic" in2="soft" scale="16" xChannelSelector="R" yChannelSelector="G"/>' +
+                '</filter>';
+            document.body.appendChild(svg);
+        }
+
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced) return;
+
+        var selector = '.project, .work-card, .page-card, .about-hero-strip, .about-goals, .popup__content';
+        document.querySelectorAll(selector).forEach(function (el) {
+            el.addEventListener('pointermove', function (e) {
+                var r = el.getBoundingClientRect();
+                el.style.setProperty('--lg-mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+                el.style.setProperty('--lg-my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+            });
+            el.addEventListener('pointerleave', function () {
+                el.style.removeProperty('--lg-mx');
+                el.style.removeProperty('--lg-my');
+            });
+        });
+    })();
+
     console.log('%c NEFORCEO ', 'background:#303030;color:white;font-size:20px;padding:10px;');
     console.log('%c Welcome! ', 'background:#707070;color:white;font-size:14px;padding:5px;');
 });

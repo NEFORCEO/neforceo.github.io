@@ -1348,7 +1348,206 @@ body {
     padding: 60px 40px;
 }
 
+/* ============================================================
+   LIQUID GLASS  —  Apple-style translucent surface system
+   ============================================================ */
 
+:root {
+    --lg-tint:        rgba(255, 255, 255, .055);
+    --lg-tint-strong: rgba(255, 255, 255, .10);
+    --lg-blur:        20px;
+    --lg-saturate:    185%;
+    --lg-edge:        rgba(255, 255, 255, .55);
+    --lg-edge-soft:   rgba(255, 255, 255, .10);
+    --lg-highlight:   rgba(255, 255, 255, .30);
+    --lg-shadow:      0 10px 34px rgba(0, 0, 0, .38);
+    --lg-sheen:       rgba(255, 255, 255, .16);
+}
 
+/* -- shared glass surface ------------------------------------ */
+.project,
+.page-card,
+.work-card,
+.about-hero-strip,
+.about-goals,
+.popup__content {
+    position: relative;
+    isolation: isolate;
+    background: var(--lg-tint);
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+            backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    border: 1px solid var(--lg-edge-soft);
+    box-shadow:
+        var(--lg-shadow),
+        inset 0 1px 0 var(--lg-highlight),
+        inset 0 0 0 1px rgba(255, 255, 255, .04),
+        inset 0 -20px 40px -20px rgba(0, 0, 0, .25);
+}
+
+.project,
+.page-card { overflow: hidden; }
+
+.work-card,
+.about-hero-strip,
+.about-goals,
+.popup__content { overflow: hidden; }
+
+/* keep real content above the glass overlays */
+.project > *,
+.page-card > *,
+.work-card > *,
+.about-hero-strip > *,
+.about-goals > *,
+.popup__content > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* moving specular sheen — follows the pointer */
+.project::before,
+.page-card::before,
+.work-card::before,
+.about-hero-strip::before,
+.about-goals::before,
+.popup__content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        220px 220px at var(--lg-mx, 30%) var(--lg-my, 0%),
+        var(--lg-sheen),
+        transparent 62%);
+    opacity: 0;
+    transition: opacity .45s ease;
+    pointer-events: none;
+}
+.project:hover::before,
+.page-card:hover::before,
+.work-card:hover::before,
+.about-hero-strip:hover::before,
+.about-goals:hover::before,
+.popup__content::before { opacity: 1; }
+
+/* bright refracted rim */
+.project::after,
+.page-card::after,
+.work-card::after,
+.about-hero-strip::after,
+.about-goals::after,
+.popup__content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        140deg,
+        var(--lg-edge) 0%,
+        transparent 30%,
+        transparent 66%,
+        rgba(255, 255, 255, .28) 100%);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+            mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* the big / few panels also refract the backdrop */
+.work-card,
+.about-hero-strip,
+.about-goals,
+.popup__content {
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate)) url(#lg-refract);
+            backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate)) url(#lg-refract);
+}
+.project:hover {
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate)) url(#lg-refract);
+            backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate)) url(#lg-refract);
+}
+
+/* the project accent panel — a frostier inset slab */
+.project__accent {
+    background: rgba(0, 0, 0, .16);
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, .06);
+}
+
+/* -- frosted full-screen modal scrim ------------------------ */
+.popup {
+    background: rgba(18, 18, 20, .55);
+    -webkit-backdrop-filter: blur(26px) saturate(150%);
+            backdrop-filter: blur(26px) saturate(150%);
+}
+.popup__content {
+    padding: 44px 46px;
+    border-radius: 40px 72px 40px 72px;
+}
+
+/* -- glass on the smaller controls & chips ------------------ */
+.language-button,
+.projects__slide-button,
+.project__info-btn,
+.skills-form__label,
+.tech-tag {
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+            backdrop-filter: blur(10px) saturate(160%);
+    background-color: rgba(255, 255, 255, .045);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .35),
+        0 2px 12px rgba(0, 0, 0, .16);
+}
+.projects__slide-button,
+.project__info-btn {
+    border-color: var(--lg-edge-soft);
+}
+
+/* -- glass trough for the preloader bar --------------------- */
+.preloader-bar {
+    background: rgba(0, 0, 0, .06);
+    -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12);
+}
+
+/* -- motion / perf / fallback ------------------------------- */
+@media (max-width: 900px) {
+    :root { --lg-blur: 12px; }
+    .work-card,
+    .about-hero-strip,
+    .about-goals,
+    .popup__content,
+    .project:hover {
+        -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+                backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project::before,
+    .page-card::before,
+    .work-card::before,
+    .about-hero-strip::before,
+    .about-goals::before,
+    .popup__content::before { transition: none; }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .project,
+    .page-card { background: rgba(112, 112, 112, .92); }
+    .work-card,
+    .about-hero-strip,
+    .about-goals { background: rgba(255, 255, 255, .07); }
+    .popup { background: var(--bg-primary); }
+    .popup__content { background: rgba(255, 255, 255, .06); }
+}
 
 
